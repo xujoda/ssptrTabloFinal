@@ -13,7 +13,7 @@ import { GruelService } from '@xujoda/ssptr_lib_gruel';
 })
 
 export class AppComponent implements OnInit  {
-  title = 'Sosipater2';
+  title = 'ssptr TABLO';
 
 
   s:Observable<any> = NEVER; 
@@ -23,15 +23,15 @@ export class AppComponent implements OnInit  {
   constructor(
     private gruel: GruelService,
     private wsSeason: AllReaderService,
-    // private admSvc:SsptrFidsGruelService,
+    //private admSvc:SsptrFidsGruelService,
     //private testSvc:FidsExDataService
     //private lang$: FidsExLangService
 
   ){
       console.log(" AppComponent");
       wsSeason.getAll$;
+      gruel.registry();
       
-      //gruel.registry();
       // admSvc.init();
 
       //test

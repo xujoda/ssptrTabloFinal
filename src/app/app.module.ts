@@ -48,18 +48,15 @@ import { BrowserModule } from '@angular/platform-browser';
     MatToolbarModule,
     SsptrFidsPresentorModule,
     SsptrFidsModule,
-    MatTableModule,
+    MatTableModule ,
     SsptrHandmadeSheduleModule,
     SsptrFidsDesignModule,
   ],
 
   providers: [{ provide: ENVIRONMENT, useValue: environment }],
   
- // bootstrap: [AppComponent],
+  //bootstrap: [AppComponent],
   //entryComponents: [GruelMonitorDialog]
-
-  
-
 })
 
 export class AppModule {

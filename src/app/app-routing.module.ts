@@ -11,6 +11,7 @@ import { NotImplementedComponent } from './not-implemented/not-implemented.compo
 const staticRoutes: Routes = [
     { path: 'admin',    component: GruelAdminComponent , pathMatch: 'full' },  
     { path: 'home',     component: HomeComponent , pathMatch: 'full' },
+    { path: 'tablo',    component: AppHandmadeSheduleComponent , pathMatch: 'full' },
     { path: '**',       redirectTo: 'home', pathMatch: 'full' },
 ] ;
 
@@ -20,7 +21,7 @@ const staticRoutes: Routes = [
 //   (opt) => fidsOptionComponentSelector.
 // );
 
-// строит всевозможные роуты на базе fidspresentoption  и привязывает компоненты 
+//строит всевозможные роуты на базе fidspresentoption  и привязывает компоненты 
 const fidsRoutes: Routes =  buildRouteFromComponentSelector(
   [
     [(opt) => 
@@ -42,7 +43,7 @@ const fidsRoutes: Routes =  buildRouteFromComponentSelector(
 })
 export class AppRoutingModule { 
     constructor(){
-      console.log("Add " +  fidsRoutes.length + " fids routes..." );
+      // console.log("Add " +  fidsRoutes.length + " fids routes..." );
      // console.log( fidsRoutes );
     }
 }

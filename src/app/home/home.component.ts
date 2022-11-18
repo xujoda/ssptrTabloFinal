@@ -17,7 +17,9 @@ export class HomeComponent implements OnInit {
 
   route$ :  BehaviorSubject<string[]> =  new BehaviorSubject([] as string[] );
 
-  constructor() { }
+  constructor() {
+    console.log(" HomeComponent");
+   }
 
   ngOnInit(): void {
   }
