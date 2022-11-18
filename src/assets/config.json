@@ -1,0 +1,39 @@
+{
+    "Gruel": 
+    {
+        "id":"00000000-0000-0000-0000-000000000000",
+        "beatInterval":10000
+    }, 
+
+    "Translate":{
+        "Прилет":{ "en":"Arrival" }, 
+        "Вылет":{ "en":"Departure" },
+        "Время":{ "en":"Planned" },
+        "Ож.время":{ "en":"Expected" },
+        "#НаправлениеВ":{ "en":"Arriving from","ru":"Направление" },
+        "#НаправлениеП":{ "en":"Destination",  "ru":"Направление" },
+        "Выход":{ "en":"Gate" },
+        "Путь":{ "en":"Gateway" },
+        "Стойка":{ "en":"Desck" },
+        "Терминал":{ "en":"Terminal" },
+        "Информация":{ "en":"Status" },
+        "Авиакомпания":{ "en":"Airline" },
+        "Рейс":{"en":"Flight number" }  
+    },
+    
+    "Fids":{
+        "delayLang" : 5000,
+        "fidsFreshInterval": { 
+            "FlightFids":2000,
+            "FlightFidsXml":10000
+        }
+    },
+
+    "App":{
+        "isSite":false
+    }    
+}
+
+    
+
+ 

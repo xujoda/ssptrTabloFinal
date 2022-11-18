@@ -1,0 +1,85 @@
+@use '@angular/material' as mat;
+@import 'ssptr-comp-theme.scss' ;
+@include mat.core();
+
+
+
+// Define a light theme for site
+$sosipater-primary-site-palette: (
+ 100:#717fab,
+ 200:#182e68,
+ 500:#284699,
+ 700:#0e1d4b,
+ contrast: (
+    100:white,
+    500:white,
+    700:white,
+  )
+);
+$sosipater-site-primary: mat.define-palette($sosipater-primary-site-palette);
+
+$sosipater-accent-site-palette: (
+ 100:#b9b9fe,
+ //200:#1415fa
+ 500:#1415fa,
+ 700:hsl(240, 17%, 43%),
+  contrast: (
+    100:white,
+    500:white,
+    700:white,
+   )
+);
+$sosipater-site-accent: mat.define-palette($sosipater-accent-site-palette);
+
+$site-theme: mat.define-light-theme((
+    color: (
+        primary: $sosipater-site-primary,
+        accent: $sosipater-site-accent,
+    )
+));
+
+@include mat.all-component-themes($site-theme);
+@include ssptr-component-themes($site-theme) ;
+
+
+// Define a dark theme for fids
+$sosipater-primary-fids-palette: (
+ 100:#282828,
+ 500:#141414,
+ 700:black,
+ contrast: ( 
+    100:#ffee00,
+    500:hsl(60, 86%, 95%), 
+    700:rgb(0, 162, 232), 
+ )
+);
+$sosipater-fids-primary: mat.define-palette($sosipater-primary-fids-palette);
+
+$sosipater-accent-fids-palette: (
+ 100:#fff9a1,
+ 500:rgb(0, 162, 232),
+ 700:hsl(40, 72%, 23%),
+ contrast: ( 
+    100:rgba(5, 5, 5, 0.76),
+    500:black,
+    700:rgb(247, 245, 243),
+ )
+);
+
+$sosipater-fids-accent: mat.define-palette($sosipater-accent-fids-palette);
+
+$fids-theme: mat.define-dark-theme((
+    color: (
+        primary: $sosipater-fids-primary,
+        accent: $sosipater-fids-accent,
+    )
+));
+
+.fids-theme{
+
+    @include mat.all-component-themes($fids-theme);
+    @include ssptr-component-themes($fids-theme) ;
+
+}
+
+

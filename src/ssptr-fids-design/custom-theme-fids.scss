@@ -1,0 +1,102 @@
+
+
+$fids-primary:(
+  main: rgb(20, 20, 20),
+  lighter: rgb(40, 40, 40),
+  darker: black,
+  contrast : (
+    main:hsl(60, 86%, 95%), 
+    lighter:  #ffee00,
+    darker:  rgb(0, 162, 232),       //rgb(129, 155, 1),
+  )
+);
+
+$fids-accent:(
+  main:  rgb(0, 162, 232), // #ffee00,
+  lighter:   #fff9a1,
+  darker: hsl(40, 72%, 23%),
+  contrast : (
+    main: black,
+    lighter: rgba(5, 5, 5, 0.76),
+    darker: rgb(247, 245, 243),
+  )
+);
+
+// The warn palette is optional (defaults to red).
+$fids-warn: (
+  main: #9b0415,
+  lighter: #e1b4b9,
+  darker: #7f020c,
+  contrast : (
+    main:hsl(64, 99%, 49%), 
+    lighter: hsl(64, 99%, 49%), 
+    darker: hsl(64, 99%, 38%),
+  )
+);
+
+@mixin fids-color-get($source, $hue ) {
+  color: map-get( map-get( $source, contrast) ,$hue );
+}
+
+@mixin fids-text-color-get($source, $hue ) {
+  background-color: map-get($source, $hue);
+  @include fids-color-get($source, $hue) ;
+}
+
+
+.fids-primary-color{
+  @include fids-color-get($fids-primary,main ) ;
+}
+
+.fids-primary-text{
+  @include fids-text-color-get($fids-primary,main ) ;
+}
+
+.fids-primary-lighter-color{
+  @include fids-color-get($fids-primary,lighter ) ;
+}
+
+.fids-primary-lighter-text{
+  @include fids-text-color-get($fids-primary,lighter ) ;
+}
+
+.fids-primary-darker-color{
+  @include fids-color-get($fids-primary,darker ) ;
+}
+
+.fids-primary-darker-text{
+  @include fids-text-color-get($fids-primary,darker ) ;
+}
+
+.fids-primary-darker-text-2{
+  @include fids-color-get($fids-primary,main) ;
+  background-color: map-get($fids-primary, darker);
+}
+
+.fids-primary-darker-text-1{
+  @include fids-color-get($fids-primary,lighter) ;
+  background-color: map-get($fids-primary, darker);
+}
+
+
+
+.fids-accent-text{
+  @include fids-text-color-get($fids-accent,main ) ;
+}
+
+.fids-accent-lighter-text{
+  @include fids-text-color-get($fids-accent,lighter ) ;
+}
+
+.fids-accent-darker-text{
+  @include fids-text-color-get($fids-accent,main ) ;
+}
+
+.fids-accent-darker-color{
+  @include fids-color-get($fids-accent,darker ) ;
+}
+
+.fids-warn-darker-color{
+  @include fids-color-get($fids-warn,darker ) ;
+}
+
