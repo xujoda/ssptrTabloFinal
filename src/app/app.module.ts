@@ -23,7 +23,6 @@ import { MatTableModule } from '@angular/material/table';
 import { SsptrHandmadeSheduleModule } from '@xujoda/ssptr_lib_tablo_component';
 import { APP_CFG_KEY, initConfigApp } from './app-config';
 import { take, skip, tap } from 'rxjs';
-import { SsptrFidsDesignModule } from 'src/ssptr-fids-design/ssptr-fids-design.module';
 import { BrowserModule } from '@angular/platform-browser';
 
 
@@ -48,15 +47,15 @@ import { BrowserModule } from '@angular/platform-browser';
     MatToolbarModule,
     SsptrFidsPresentorModule,
     SsptrFidsModule,
-    MatTableModule ,
-    SsptrHandmadeSheduleModule,
-    SsptrFidsDesignModule,
+    MatTableModule,
+    SsptrHandmadeSheduleModule
   ],
 
   providers: [{ provide: ENVIRONMENT, useValue: environment }],
   
   //bootstrap: [AppComponent],
   //entryComponents: [GruelMonitorDialog]
+
 })
 
 export class AppModule {

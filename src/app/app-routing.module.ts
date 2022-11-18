@@ -24,6 +24,7 @@ const staticRoutes: Routes = [
 //строит всевозможные роуты на базе fidspresentoption  и привязывает компоненты 
 const fidsRoutes: Routes =  buildRouteFromComponentSelector(
   [
+    [(opt) => !opt.isWeb , AppHandmadeSheduleComponent ], // sos
     [(opt) => 
         (opt.presentMode == presentType.SEASON || opt.presentMode == presentType.SEASON_W|| opt.presentMode == presentType.SEASON_S)
             && opt.isWeb , 
@@ -38,7 +39,7 @@ const fidsRoutes: Routes =  buildRouteFromComponentSelector(
 )
 
 @NgModule({
-  imports: [RouterModule.forRoot(fidsRoutes.concat( staticRoutes))],
+  imports: [RouterModule.forRoot(staticRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { 

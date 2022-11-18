@@ -29,6 +29,7 @@ export class AppComponent implements OnInit  {
 
   ){
       console.log(" AppComponent");
+
       wsSeason.getAll$;
       gruel.registry();
       

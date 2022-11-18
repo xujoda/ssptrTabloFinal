@@ -1,0 +1,170 @@
+@use '@angular/material' as mat;
+
+$ssptr-typography: mat.define-typography-config();
+
+$ssptr-shemes : primary accent warn ;
+$ssptr-colors : ( darker:700, main:500, lighter:100) ;
+
+
+
+@mixin ssptr-component-themes($theme) {
+    @for $i from 1 to length($ssptr-shemes)+1 {
+        @for $j from 1 to length($ssptr-colors)+1 {
+            //@debug $j;
+            //@debug $i;
+            @debug ssptr-#{ nth($ssptr-shemes, $i )}-#{  nth( nth($ssptr-colors, $j ),1 )}-color ;
+
+            .ssptr-#{ nth($ssptr-shemes, $i )}-#{  nth( nth($ssptr-colors, $j ),1 )}-color {
+                @include ssptr-color(   map-get(  map-get($theme, color), nth($ssptr-shemes, $i ) )  ,  nth( nth($ssptr-colors, $j ),2 ) );
+            }
+            .ssptr-#{ nth($ssptr-shemes, $i )}-#{  nth( nth($ssptr-colors, $j ),1 )}-color-r {
+                @include ssptr-color-r( map-get(  map-get($theme, color), nth($ssptr-shemes, $i ) )  ,  nth( nth($ssptr-colors, $j ),2 ) );
+            }
+            .ssptr-#{ nth($ssptr-shemes, $i )}-#{  nth( nth($ssptr-colors, $j ),1 )}-text {
+                @include ssptr-text(   map-get(  map-get($theme, color),  nth($ssptr-shemes, $i ) )  ,  nth( nth($ssptr-colors, $j ),2 ) );
+            }
+            .ssptr-#{ nth($ssptr-shemes, $i )}-#{  nth( nth($ssptr-colors, $j ),1 )}-text-r {
+                @include ssptr-text-r( map-get(  map-get($theme, color),  nth($ssptr-shemes, $i ) )  ,  nth( nth($ssptr-colors, $j ),2 ) );
+            }
+
+            .ssptr-#{ nth($ssptr-shemes, $i )}-#{  nth( nth($ssptr-colors, $j ),1 )}-stroke-r {
+              @include ssptr-stroke-r(   map-get(  map-get($theme, color), nth($ssptr-shemes, $i ) )  ,  nth( nth($ssptr-colors, $j ),2 ) );
+            }
+        } 
+    }
+
+    // aditional
+    .ssptr-primary-darker-text-2{
+        //@extend .ssptr-primary-main-color  ;
+        @extend .ssptr-accent-lighter-color-r ;
+        background-color: map-get(  map-get(  map-get($theme, color),  primary ) , 700);
+    }
+
+    @include ssptr-mat-table() ;
+    @include ssptr-mat-menu() ;
+}
+
+@mixin ssptr-stroke-r($source, $hue ) {
+  stroke:  map-get($source,$hue );
+}
+
+@mixin ssptr-color($source, $hue ) {
+    color: map-get( map-get( $source, contrast) ,$hue );
+}
+
+@mixin ssptr-color-r($source, $hue ) {
+    color: map-get($source,$hue );
+}
+
+@mixin ssptr-text($source, $hue ) {
+    background-color: map-get($source, $hue);
+    @include ssptr-color($source, $hue) ;
+}
+  
+@mixin ssptr-text-r($source, $hue ) {
+    background-color: map-get( map-get( $source, contrast) ,$hue );
+    @include ssptr-color-r($source, $hue) ;
+}
+
+// table style
+@mixin ssptr-mat-table() {
+    .mat-header-cell {
+        @extend .ssptr-primary-lighter-color  ;
+        font-size: mat.font-size( $ssptr-typography, body-2 );
+        font-weight: mat.font-weight( $ssptr-typography, title );
+        padding-right: 10px;
+    }
+  
+    .sosipater-mat-cell {
+      font-size : calc(#{ mat.font-size( $ssptr-typography, body-1)} * 1.2) ;
+      font-weight: mat.font-weight( $ssptr-typography, body-1 );
+      padding-right: 10px;
+    }
+  
+    .sosipater-mat-accent-cell {
+      @extend .sosipater-mat-cell;
+      @extend .ssptr-accent-main-color ;
+      font-weight: mat.font-weight( $ssptr-typography, title );
+    }  
+  
+    .sosipater-mat-main-cell {
+      @extend .sosipater-mat-cell;
+      @extend .ssptr-primary-main-color;
+      font-weight:mat.font-weight( $ssptr-typography, title );
+      font-size : calc(#{mat.font-size( $ssptr-typography, body-1)} * 1.3) ;
+    } 
+    
+    .sosipater-mat-sub-main-cell {
+      @extend .sosipater-mat-cell;
+      @extend .ssptr-primary-main-color ;
+      font-weight: mat.font-weight( $ssptr-typography, body-1 )* 1;
+      font-size : calc(#{mat.font-size( $ssptr-typography, body-1)} * 1.3) ;
+    }  
+  
+    .sosipater-mat-main-title {
+      @extend .sosipater-mat-cell;
+      @extend .ssptr-primary-main-color ;
+      font-weight: mat.font-weight( $ssptr-typography, title) ;
+      font-size : calc(#{mat.font-size( $ssptr-typography, title)} * 2 ) ;
+      line-height: calc(#{mat.font-size( $ssptr-typography, title)} * 2 );
+    } 
+  
+    .sosipater-mat-sub-main-title {
+      @extend .sosipater-mat-cell;
+      @extend .ssptr-primary-darker-color ;
+      font-weight: bold;
+      font-size : calc(#{mat.font-size( $ssptr-typography, title)} *1.2) ;
+    }  
+  
+    .sosipater-mat-cell-subrow {
+      @extend .sosipater-mat-cell;
+      // color: mat-color($accent, main);
+      font-weight: mat.font-weight( $ssptr-typography, body-1 );
+    }  
+  
+    .sosipater-mat-cell-subrow-small {
+      @extend .sosipater-mat-cell;
+      font-size :mat.font-size( $ssptr-typography, body-2 ) * 0.9 ; 
+      font-weight:mat.font-weight( $ssptr-typography, body-1 );
+    }  
+}
+ 
+@mixin ssptr-mat-menu() {
+
+    .ssptr-mat-menu-item:hover{
+      @extend .ssptr-accent-main-color-r;
+    }
+
+    .ssptr-mat-menu-item{
+      @extend .ssptr-primary-lighter-color-r;
+    }
+
+    .ssptr-mat-menu-root{
+      @extend .ssptr-primary-main-text-r;
+      @extend .ssptr-mat-menu-item ;
+      font-size :mat.font-size( $ssptr-typography, 	title )  ; 
+      font-weight:mat.font-weight( $ssptr-typography, 	title);
+      padding-left: 20px;
+     
+      //display: inline-flex;
+      //align-items: center;
+      //height: 3rem;
+      cursor: pointer;
+      //text-decoration: none;
+      border:0px;
+    }  
+
+    .ssptr-mat-sub-menu-root{
+        @extend .ssptr-primary-main-text-r;
+       
+        font-size :mat.font-size( $ssptr-typography, 		subheading-2)  ; 
+        font-weight:mat.font-weight( $ssptr-typography, 		subheading-2) * 1.1 ;
+        
+    }
+    
+    // font-size :mat-font-size( $config-typography, body-1  );
+    // font-weight: mat-font-weight( $config-typography, body-1  ) ;
+    // padding-left: 20px;
+}
+
+
