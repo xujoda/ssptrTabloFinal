@@ -1,0 +1,93 @@
+
+.fids-table{
+  width: 100%;
+  table-layout:fixed; 
+  overflow: hidden; 
+}
+
+.fids-table-col{
+    padding-left:0.2vw;
+    padding-right:0.2vw; 
+}
+
+
+.mat-cell{
+    padding-left: 00.2vw;
+    border-bottom-width: 0;
+    text-align:left;
+}
+
+
+.mat-header-cell span{
+  padding-left: 20px; 
+  font-size: 120%;
+}
+
+.mat-cell-Flight{
+    white-space: pre-line;
+}
+
+.mat-cell-Center{
+    @extend .ssptr-primary-main-color !optional;
+    text-align: center;
+    white-space: pre-line;
+}
+
+
+.fids-table-header-row{
+  height:30px !important;
+}
+.fids-table-hyper-header-row{
+  height:40px !important;
+}
+
+
+.fids-table-row{
+    height:2.4vh !important;  //2.8
+    //line-height: 80%;
+}
+
+
+
+.mat-column-CustCode{
+    width: 4vw ;
+}  
+
+.mat-column-DestD, .mat-column-DestA, .mat-column-Trans
+{
+    width: 9vw;
+}  
+
+.header-caption-fids{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+}   
+  
+.header-caption-fids div{
+  // width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-sub-text-fids{
+  font-size: 14px;
+  line-height: 16px;
+  height: 16px;
+  right: 10px;
+  //@extend .ssptr-accent-darker-color !optional;
+
+}
+
+
+.progress-fids{
+  height: 1px;
+}
+
+.ejac-cnt{
+    display: inline-block;
+    vertical-align:middle;
+}
+
+    
